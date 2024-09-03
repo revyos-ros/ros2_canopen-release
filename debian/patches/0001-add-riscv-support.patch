@@ -1,0 +1,58 @@
+From 5043dfb30f5d48c2f2d3fb3f79e3c10b12e6110b Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Tue, 3 Sep 2024 18:02:16 +0800
+Subject: [PATCH] add riscv support
+
+---
+ CMakeLists.txt                       |  1 +
+ patches/0002-add-riscv-support.patch | 26 ++++++++++++++++++++++++++
+ 2 files changed, 27 insertions(+)
+ create mode 100644 patches/0002-add-riscv-support.patch
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4eaadc2..79838ea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,7 @@ ExternalProject_Add(upstr_lely_core_libraries    # Name for custom target
+   UPDATE_COMMAND
+   COMMAND git reset --hard
+   COMMAND git apply --whitespace=fix --reject ${CMAKE_CURRENT_SOURCE_DIR}/patches/0001-Fix-dcf-tools.patch
++  COMMAND git apply --whitespace=fix --reject ${CMAKE_CURRENT_SOURCE_DIR}/patches/0002-add-riscv-support.patch
+   #CONFIGURE step execute autoreconf and configure
+   CONFIGURE_COMMAND autoreconf -i <SOURCE_DIR>
+   COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-cython --disable-doc --disable-tests --disable-static --disable-diag
+diff --git a/patches/0002-add-riscv-support.patch b/patches/0002-add-riscv-support.patch
+new file mode 100644
+index 0000000..63b5fd7
+--- /dev/null
++++ b/patches/0002-add-riscv-support.patch
+@@ -0,0 +1,26 @@
++From d58f834c7f59e3bc01146e6a2319f37aa81b03b3 Mon Sep 17 00:00:00 2001
++From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
++Date: Tue, 3 Sep 2024 17:10:03 +0800
++Subject: [PATCH] add riscv support.
++
++---
++ src/util/mkjmp.c | 3 +++
++ 1 file changed, 3 insertions(+)
++
++diff --git a/src/util/mkjmp.c b/src/util/mkjmp.c
++index ade23cd8..506097f6 100644
++--- a/src/util/mkjmp.c
+++++ b/src/util/mkjmp.c
++@@ -44,6 +44,9 @@
++ #elif defined(__x86_64__)
++ #define MKJMP_SET_SP(sp, size) \
++ 	__asm__("movq    %0, %%rsp" ::"r"((char *)(sp) + (size)))
+++#elif defined(__riscv)
+++#define MKJMP_SET_SP(sp, size) \
+++	__asm__("move sp, %0" ::"r"((char *)(sp) + (size)))
++ #endif
++ #elif defined(_MSC_VER)
++ #if defined(_M_AMD64)
++-- 
++2.45.2
++
+-- 
+2.45.2
+
