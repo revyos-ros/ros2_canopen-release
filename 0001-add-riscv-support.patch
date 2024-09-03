@@ -1,4 +1,4 @@
-From 0febfd6a39b957633105ae32ecf22b6ef3fdaefe Mon Sep 17 00:00:00 2001
+From 4a9deed5e91a6053505cf397478a8386852013e0 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Tue, 3 Sep 2024 18:03:28 +0800
 Subject: [PATCH] add riscv support.
