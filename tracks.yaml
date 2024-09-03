@@ -1,4 +1,4 @@
-release_repo_url: git@github.com:revyos-ros/ros2_canopen-release.git
+release_repo_url: git@github.com:revyos-ros/ros2_canopen-release
 tracks:
   humble:
     actions:
