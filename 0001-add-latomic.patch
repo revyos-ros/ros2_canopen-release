@@ -1,0 +1,25 @@
+From 4cfb6e44dcbefd94dc87fcb692725bb5f77e38dc Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Tue, 3 Sep 2024 23:19:03 +0800
+Subject: [PATCH] add -latomic
+
+---
+ debian/rules.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index a856369d..34ce0783 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -12,7 +12,7 @@ export DH_VERBOSE=1
+ # of this sort:
+ #  https://code.ros.org/trac/ros/ticket/2977
+ #  https://code.ros.org/trac/ros/ticket/3842
+-export LDFLAGS=
++export LDFLAGS=-latomic
+ export PKG_CONFIG_PATH=@(InstallationPrefix)/lib/pkgconfig
+ # Explicitly enable -DNDEBUG, see:
+ # 	https://github.com/ros-infrastructure/bloom/issues/327
+-- 
+2.45.2
+
