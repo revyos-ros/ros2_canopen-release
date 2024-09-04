@@ -1,4 +1,4 @@
-From 55b3f917ea4735bd7c2fc0ac5bdd498e07b17947 Mon Sep 17 00:00:00 2001
+From b49b9a89816cefa5e6ee60446ddc3ea5c744c9df Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Tue, 3 Sep 2024 18:03:28 +0800
 Subject: [PATCH] add riscv support.
@@ -12,7 +12,7 @@ Subject: [PATCH] add riscv support.
 
 diff --git a/debian/patches/0001-add-riscv-support.patch b/debian/patches/0001-add-riscv-support.patch
 new file mode 100644
-index 0000000..2aa0f4a
+index 00000000..2aa0f4a7
 --- /dev/null
 +++ b/debian/patches/0001-add-riscv-support.patch
 @@ -0,0 +1,58 @@
@@ -76,7 +76,7 @@ index 0000000..2aa0f4a
 +
 diff --git a/debian/patches/series b/debian/patches/series
 new file mode 100644
-index 0000000..412a0b4
+index 00000000..412a0b40
 --- /dev/null
 +++ b/debian/patches/series
 @@ -0,0 +1 @@
