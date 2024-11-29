@@ -1,0 +1,72 @@
+From 21465b349371b309a2f403009fafb0b5c9c34b78 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Fri, 29 Nov 2024 20:34:13 +0800
+Subject: [PATCH 4/4] fixup! fixup! add 0001-add-latomic-to-fix-test.patch.
+
+---
+ debian/patches/0001-add-latomic.patch | 37 +++++++++++++++++++++++----
+ 1 file changed, 32 insertions(+), 5 deletions(-)
+
+diff --git a/debian/patches/0001-add-latomic.patch b/debian/patches/0001-add-latomic.patch
+index 5e3cfc9b..86679eda 100644
+--- a/debian/patches/0001-add-latomic.patch
++++ b/debian/patches/0001-add-latomic.patch
+@@ -1,16 +1,25 @@
+-From 28ba90deeb2dec3cc5f8fd9824b63cf6a4132735 Mon Sep 17 00:00:00 2001
++From 6e29c34f5ee7b787f91baec540ee3c42501c1c65 Mon Sep 17 00:00:00 2001
+ From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+-Date: Fri, 29 Nov 2024 20:20:37 +0800
++Date: Fri, 29 Nov 2024 20:33:41 +0800
+ Subject: [PATCH] add -latomic
+ 
+ ---
+- CMakeLists.txt | 2 +-
+- 1 file changed, 1 insertion(+), 1 deletion(-)
++ CMakeLists.txt | 8 ++++----
++ 1 file changed, 4 insertions(+), 4 deletions(-)
+ 
+ diff --git a/CMakeLists.txt b/CMakeLists.txt
+-index 47c26e03..ee339ba0 100644
++index 47c26e03..e9e3b2a6 100644
+ --- a/CMakeLists.txt
+ +++ b/CMakeLists.txt
++@@ -35,7 +35,7 @@ add_library(lely_driver_bridge
++   src/lely_driver_bridge.cpp
++ )
++ target_compile_features(lely_driver_bridge PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
++-target_compile_options(lely_driver_bridge PUBLIC -Wl,--no-undefined)
+++target_compile_options(lely_driver_bridge PUBLIC -Wl,--no-undefined -latomic)
++ target_include_directories(lely_driver_bridge PUBLIC
++   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++   $<INSTALL_INTERFACE:include>)
+ @@ -50,7 +50,7 @@ add_library(node_canopen_base_driver
+    src/node_interfaces/node_canopen_base_driver.cpp
+  )
+@@ -20,6 +29,24 @@ index 47c26e03..ee339ba0 100644
+  target_include_directories(node_canopen_base_driver PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
++@@ -69,7 +69,7 @@ add_library(lifecycle_base_driver
++   src/lifecycle_base_driver.cpp
++ )
++ target_compile_features(lifecycle_base_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
++-target_compile_options(lifecycle_base_driver PUBLIC -Wl,--no-undefined)
+++target_compile_options(lifecycle_base_driver PUBLIC -Wl,--no-undefined -latomic)
++ target_include_directories(lifecycle_base_driver PUBLIC
++   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++   $<INSTALL_INTERFACE:include>)
++@@ -96,7 +96,7 @@ add_library(base_driver
++   src/base_driver.cpp
++ )
++ target_compile_features(base_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
++-target_compile_options(base_driver PUBLIC -Wl,--no-undefined)
+++target_compile_options(base_driver PUBLIC -Wl,--no-undefined -latomic)
++ target_include_directories(base_driver PUBLIC
++   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++   $<INSTALL_INTERFACE:include>)
+ -- 
+ 2.46.0
+ 
+-- 
+2.46.0
+

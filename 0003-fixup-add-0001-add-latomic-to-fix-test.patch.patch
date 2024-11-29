@@ -1,0 +1,85 @@
+From 04f7dec0b4f53bb359c1dc67bd69acc56112d08a Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Fri, 29 Nov 2024 20:25:33 +0800
+Subject: [PATCH 3/4] fixup! add 0001-add-latomic-to-fix-test.patch.
+
+---
+ .../0001-add-latomic-to-fix-test.patch        | 25 -------------------
+ debian/patches/0001-add-latomic.patch         | 25 +++++++++++++++++++
+ debian/patches/series                         |  2 +-
+ 3 files changed, 26 insertions(+), 26 deletions(-)
+ delete mode 100644 debian/patches/0001-add-latomic-to-fix-test.patch
+ create mode 100644 debian/patches/0001-add-latomic.patch
+
+diff --git a/debian/patches/0001-add-latomic-to-fix-test.patch b/debian/patches/0001-add-latomic-to-fix-test.patch
+deleted file mode 100644
+index d6ef29e1..00000000
+--- a/debian/patches/0001-add-latomic-to-fix-test.patch
++++ /dev/null
+@@ -1,25 +0,0 @@
+-From dcfb003fce573be13a0185681ed6aa90a51cb6a6 Mon Sep 17 00:00:00 2001
+-From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+-Date: Mon, 11 Nov 2024 12:28:39 +0800
+-Subject: [PATCH] add -latomic to fix test.
+-
+----
+- test/CMakeLists.txt | 2 +-
+- 1 file changed, 1 insertion(+), 1 deletion(-)
+-
+-diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+-index eeab7e31..2788b571 100644
+---- a/test/CMakeLists.txt
+-+++ b/test/CMakeLists.txt
+-@@ -8,7 +8,7 @@ target_include_directories(test_node_canopen_base_driver_ros PUBLIC
+-   ${CMAKE_CURRENT_SOURCE_DIR}/../include/
+- )
+- target_link_libraries(test_node_canopen_base_driver_ros
+--  node_canopen_base_driver
+-+  node_canopen_base_driver -latomic
+- )
+- 
+- 
+--- 
+-2.46.0
+-
+diff --git a/debian/patches/0001-add-latomic.patch b/debian/patches/0001-add-latomic.patch
+new file mode 100644
+index 00000000..5e3cfc9b
+--- /dev/null
++++ b/debian/patches/0001-add-latomic.patch
+@@ -0,0 +1,25 @@
++From 28ba90deeb2dec3cc5f8fd9824b63cf6a4132735 Mon Sep 17 00:00:00 2001
++From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
++Date: Fri, 29 Nov 2024 20:20:37 +0800
++Subject: [PATCH] add -latomic
++
++---
++ CMakeLists.txt | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/CMakeLists.txt b/CMakeLists.txt
++index 47c26e03..ee339ba0 100644
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -50,7 +50,7 @@ add_library(node_canopen_base_driver
++   src/node_interfaces/node_canopen_base_driver.cpp
++ )
++ target_compile_features(node_canopen_base_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
++-target_compile_options(node_canopen_base_driver PUBLIC -Wl,--no-undefined)
+++target_compile_options(node_canopen_base_driver PUBLIC -Wl,--no-undefined -latomic)
++ target_include_directories(node_canopen_base_driver PUBLIC
++   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++   $<INSTALL_INTERFACE:include>)
++-- 
++2.46.0
++
+diff --git a/debian/patches/series b/debian/patches/series
+index 846d44c7..4be403c5 100644
+--- a/debian/patches/series
++++ b/debian/patches/series
+@@ -1 +1 @@
+-0001-add-latomic-to-fix-test.patch
++0001-add-latomic.patch
+-- 
+2.46.0
+
