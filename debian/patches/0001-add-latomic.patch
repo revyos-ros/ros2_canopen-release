@@ -1,0 +1,25 @@
+From 28ba90deeb2dec3cc5f8fd9824b63cf6a4132735 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Fri, 29 Nov 2024 20:20:37 +0800
+Subject: [PATCH] add -latomic
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 47c26e03..ee339ba0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -50,7 +50,7 @@ add_library(node_canopen_base_driver
+   src/node_interfaces/node_canopen_base_driver.cpp
+ )
+ target_compile_features(node_canopen_base_driver PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+-target_compile_options(node_canopen_base_driver PUBLIC -Wl,--no-undefined)
++target_compile_options(node_canopen_base_driver PUBLIC -Wl,--no-undefined -latomic)
+ target_include_directories(node_canopen_base_driver PUBLIC
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>)
+-- 
+2.46.0
+
