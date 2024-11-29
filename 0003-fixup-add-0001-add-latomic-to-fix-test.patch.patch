@@ -1,4 +1,4 @@
-From 04f7dec0b4f53bb359c1dc67bd69acc56112d08a Mon Sep 17 00:00:00 2001
+From 18eb4a058ea14584ff72fd9ec991881bd76425d4 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Fri, 29 Nov 2024 20:25:33 +0800
 Subject: [PATCH 3/4] fixup! add 0001-add-latomic-to-fix-test.patch.
