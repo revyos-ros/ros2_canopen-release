@@ -63,7 +63,7 @@ struct Cia402Data
     }
 
     node_id = config["node_id"].as<uint16_t>();
-    RCLCPP_INFO(
+    RCLCPP_ERROR(
       rclcpp::get_logger(joint_name), "Node id for '%s' is '%u'", joint.name.c_str(), node_id);
 
     if (config["position_mode"])
@@ -135,8 +135,7 @@ struct Cia402Data
       command_interface_to_operation_mode.end())
     {
       // target effort
-      command_interfaces.emplace_back(
-        joint_name, hardware_interface::HW_IF_EFFORT, &target_position);
+      command_interfaces.emplace_back(joint_name, hardware_interface::HW_IF_EFFORT, &target_torque);
       interfaces.push_back(joint_name + "/" + "effort");
     }
   }
@@ -164,6 +163,7 @@ struct Cia402Data
         driver->set_target(target_velocity);
         break;
       case MotorBase::Profiled_Torque:
+      case MotorBase::Cyclic_Synchronous_Torque:
         driver->set_target(target_torque);
         break;
       default:
