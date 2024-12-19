@@ -1,4 +1,4 @@
-From febded0cf2081431fe2642589c12c5b253923655 Mon Sep 17 00:00:00 2001
+From 398f1fe25247021d0d485110435227818808c025 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Tue, 3 Sep 2024 23:19:03 +0800
 Subject: [PATCH] add -latomic
@@ -21,5 +21,5 @@ index a856369d..34ce0783 100755
  # Explicitly enable -DNDEBUG, see:
  # 	https://github.com/ros-infrastructure/bloom/issues/327
 -- 
-2.45.2
+2.46.0
 
