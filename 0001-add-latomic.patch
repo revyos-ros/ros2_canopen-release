@@ -1,4 +1,4 @@
-From 398f1fe25247021d0d485110435227818808c025 Mon Sep 17 00:00:00 2001
+From 45c259956c192027b085d48e5dca29f39f98144b Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Tue, 3 Sep 2024 23:19:03 +0800
 Subject: [PATCH] add -latomic
