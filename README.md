@@ -1,3 +1,39 @@
+## ros2_canopen (jazzy) - 0.3.0-1
+
+The packages in the `ros2_canopen` repository were released into the `jazzy` distro by running `/tmp/venv/bin/bloom-release -r jazzy ros2_canopen --override-release-repository-push-url git@github.com:revyos-ros/ros2_canopen-release.git` on `Thu, 19 Dec 2024 03:10:25 -0000`
+
+These packages were released:
+- `canopen`
+- `canopen_402_driver`
+- `canopen_base_driver`
+- `canopen_core`
+- `canopen_fake_slaves`
+- `canopen_interfaces`
+- `canopen_master_driver`
+- `canopen_proxy_driver`
+- `canopen_ros2_control`
+- `canopen_ros2_controllers`
+- `canopen_tests`
+- `canopen_utils`
+- `lely_core_libraries`
+
+Version of package(s) in repository `ros2_canopen`:
+
+- upstream repository: https://github.com/ros-industrial/ros2_canopen.git
+- release repository: https://github.com/revyos-ros/ros2_canopen-release.git
+- rosdistro version: `0.3.0-1`
+- old version: `0.2.12-2`
+- new version: `0.3.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## ros2_canopen (humble) - 0.2.11-6
 
 The packages in the `ros2_canopen` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv2/bin/bloom-release -r humble ros2_canopen --override-release-repository-push-url git@github.com:revyos-ros/ros2_canopen-release.git` on `Fri, 29 Nov 2024 22:17:12 -0000`
