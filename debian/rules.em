@@ -12,11 +12,12 @@ export DH_VERBOSE=1
 # of this sort:
 #  https://code.ros.org/trac/ros/ticket/2977
 #  https://code.ros.org/trac/ros/ticket/3842
-export LDFLAGS=-latomic
+export LDFLAGS=
 export PKG_CONFIG_PATH=@(InstallationPrefix)/lib/pkgconfig
 # Explicitly enable -DNDEBUG, see:
 # 	https://github.com/ros-infrastructure/bloom/issues/327
 export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
+export DEB_LDFLAGS_MAINT_APPEND=-latomic
 ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
 	BUILD_TESTING_ARG=-DBUILD_TESTING=OFF
 endif
